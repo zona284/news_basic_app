@@ -4,8 +4,15 @@ abstract class BaseEvent extends Equatable {
   const BaseEvent();
 }
 
-class FetchModel extends BaseEvent {
-  const FetchModel();
+class FetchHeadline extends BaseEvent {
+  const FetchHeadline();
+
+  @override
+  List<Object> get props => [];
+}
+
+class FetchLatestArticle extends BaseEvent {
+  const FetchLatestArticle();
 
   @override
   List<Object> get props => [];

@@ -14,12 +14,18 @@ class BaseBloc extends Bloc<BaseEvent, BaseState> {
 
   @override
   Stream<BaseState> mapEventToState(BaseEvent event) async* {
-    if (event is OnLoading) {
+    if (event is FetchHeadline || event is FetchLatestArticle) {
       yield OnLoading();
       try {
-        final List<Article> quote = await baseClient.fetchArticle(1,1);
-        yield OnLoaded(obj: quote);
-      } catch (_) {
+        List<Article> article = List();
+        if(event is FetchHeadline) {
+          article = await baseClient.fetchArticle(1,1);
+        } else {
+          article = await baseClient.fetchArticle(2,1);
+        }
+        yield OnLoaded(obj: article);
+      } catch (e) {
+        print("Error: " + e.toString());
         yield OnError();
       }
     }
