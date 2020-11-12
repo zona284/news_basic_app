@@ -7,16 +7,22 @@ import 'views/categoryscreen.dart';
 import 'views/homescreen.dart';
 import 'views/post_detail_page.dart';
 
-class SimpleBlocDelegate extends BlocDelegate {
+class SimpleBlocObserver extends BlocObserver {
   @override
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
     print(transition);
   }
+
+  @override
+  void onError(Cubit cubit, Object error, StackTrace stackTrace) {
+    super.onError(cubit, error, stackTrace);
+    print(error);
+  }
 }
 
 void main() {
-  BlocSupervisor.delegate = SimpleBlocDelegate();
+  Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then(

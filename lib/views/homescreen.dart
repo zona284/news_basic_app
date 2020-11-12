@@ -285,42 +285,4 @@ class _HomeScreenState extends State<HomeScreen>{
     );
   }
 
-  Future<List<Article>> fetchHeadline() async {
-    final response =
-    await http.get(API_HEADLINE_SLIDER);
-    print("API REQUEST: " + response.request.toString());
-    print("API STATUS: " + response.statusCode.toString());
-    print("API RESPONSE: " + response.body);
-
-    if (response.statusCode == 200) {
-      // If server returns an OK response, parse the JSON
-      var data = json.decode(response.body)['data']['data'];
-      return (data as List)
-          .map((data) => new Article.fromJson(data))
-          .toList();
-    } else {
-      // If that response was not OK, throw an error.
-      throw Exception('Failed to load post');
-    }
-  }
-
-  Future<List<Article>> fetchArticle() async {
-    final response =
-    await http.get("${API_ARTICLE_BY_CATEGORY.replaceAll("{id}", "2")}?p=1&limit=5");
-    print("API REQUEST: " + response.request.toString());
-    print("API STATUS: " + response.statusCode.toString());
-    print("API RESPONSE: " + response.body);
-
-    if (response.statusCode==200 || response.statusCode==201) {
-      // If server returns an OK response, parse the JSON
-      var data = json.decode(response.body)['data']['data'];
-      return (data as List)
-          .map((data) => new Article.fromJson(data))
-          .toList();
-    } else {
-      // If that response was not OK, throw an error.
-      throw Exception('Failed to load post');
-    }
-  }
-
 }

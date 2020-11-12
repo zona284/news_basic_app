@@ -7,10 +7,7 @@ import 'package:news_basic_app/repositories/base_api_client.dart';
 class BaseBloc extends Bloc<BaseEvent, BaseState> {
   final BaseApiClient baseClient;
 
-  BaseBloc({@required this.baseClient}) : assert(baseClient != null);
-
-  @override
-  BaseState get initialState => OnEmpty();
+  BaseBloc({@required this.baseClient}) : super(OnEmpty()); //new bloc version ^6xx require super include initial state
 
   @override
   Stream<BaseState> mapEventToState(BaseEvent event) async* {

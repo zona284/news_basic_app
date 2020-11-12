@@ -35,7 +35,14 @@ packages:
       name: bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "6.1.0"
+  bloc_test:
+    dependency: "direct dev"
+    description:
+      name: bloc_test
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.0.4"
   boolean_selector:
     dependency: transitive
     description:
@@ -187,7 +194,7 @@ packages:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.0"
+    version: "6.1.1"
   flutter_blurhash:
     dependency: transitive
     description:
@@ -303,13 +310,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.8"
-  material_search:
-    dependency: "direct main"
-    description:
-      name: material_search
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.8"
   meta:
     dependency: "direct main"
     description:
@@ -325,12 +325,12 @@ packages:
     source: hosted
     version: "0.9.7"
   mockito:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: mockito
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.2"
+    version: "4.1.1"
   nested:
     dependency: transitive
     description:
