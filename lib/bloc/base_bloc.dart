@@ -7,7 +7,9 @@ import 'package:news_basic_app/repositories/base_api_client.dart';
 class BaseBloc extends Bloc<BaseEvent, BaseState> {
   final BaseApiClient baseClient;
 
-  BaseBloc({@required this.baseClient}) : super(OnEmpty()); //new bloc version ^6xx require super include initial state
+  BaseBloc({@required this.baseClient}) :
+        assert(baseClient != null),
+        super(OnEmpty()); //new bloc version ^6xx require super include initial state
 
   @override
   Stream<BaseState> mapEventToState(BaseEvent event) async* {
@@ -17,7 +19,7 @@ class BaseBloc extends Bloc<BaseEvent, BaseState> {
         List<Article> article = List();
         if(event is FetchHeadline) {
           article = await baseClient.fetchArticle(1,1);
-        } else {
+        } else if (event is FetchLatestArticle){
           article = await baseClient.fetchArticle(2,1);
         }
         yield OnLoaded(obj: article);
