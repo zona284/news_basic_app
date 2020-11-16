@@ -1,7 +1,7 @@
 # news_basic_app
 A News Basic Flutter application.
 
-[SS1](assets/screen/ss1.jpg) [SS2](assets/screen/ss2.jpg) [SS3](assets/screen/ss3.jpg)
+![SS1](assets/screen/ss1.jpg) ![SS2](assets/screen/ss2.jpg) ![SS3](assets/screen/ss3.jpg)
 
 ## Getting Started
 A few resources to get you started if this is your first Flutter project:
